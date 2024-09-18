@@ -44,7 +44,7 @@ final class BlockPalette {
 	private array $fallbackStateId;
 
 	public function __construct() {
-		foreach(defined(ProtocolInfo::class . "::ACCEPTED_PROTOCOL") ? ProtocolInfo::ACCEPTED_PROTOCOL : [ProtocolInfo::CURRENT_PROTOCOL] as $protocolId){
+		foreach(ProtocolInfo::ACCEPTED_PROTOCOL as $protocolId){
 			if(isset($this->states[$protocolId])){
 				continue;
 			}
