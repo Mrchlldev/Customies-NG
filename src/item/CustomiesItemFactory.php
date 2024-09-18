@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace customiesdevs\customies\item;
 
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use InvalidArgumentException;
 use pocketmine\block\Block;
 use pocketmine\data\bedrock\item\BlockItemIdMap;
