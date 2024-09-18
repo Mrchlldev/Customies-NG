@@ -99,12 +99,9 @@ final class CustomiesItemFactory {
 	 * Registers a custom item ID to the required mappings in the global ItemTypeDictionary instance.
 	 */
 	private function registerCustomItemMapping(string $stringId, int $id): void {
-		if(method_exists(TypeConverter::class, "getAll")){
-			foreach(TypeConverter::getAll(true) as $typeConverter){
-				$this->registerCustomItemMappingToDictionary($typeConverter->getItemTypeDictionary(), $stringId, $id);
-			}
-		}else{
-			$this->registerCustomItemMappingToDictionary(TypeConverter::getInstance()->getItemTypeDictionary(), $stringId, $id);
+		foreach (ProtocolInfo::ACCEPTED_PROTOCOL as $protocolId) {
+			$typeConverter = TypeConverter::getInstance($protocolId);
+			$this->registerCustomItemMappingToDictionary($typeConverter->getItemTypeDictionary(), $stringId, $id);
 		}
 	}
 
